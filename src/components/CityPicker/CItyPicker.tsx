@@ -10,7 +10,7 @@ import {
   SelectLabel,
   SelectItem,
   SelectSeparator,
-} from "@/components/Select/Select";
+} from "@/components/ui/Select/Select";
 import { MdOutlineLocationOn } from "react-icons/md";
 
 export function CityPicker() {
