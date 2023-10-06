@@ -1,7 +1,7 @@
 "use client";
 
 import { forwardRef, ElementRef, ComponentPropsWithoutRef } from "react";
-import { CaretSortIcon } from "@radix-ui/react-icons";
+import { CaretSortIcon, CheckIcon } from "@radix-ui/react-icons";
 import * as SelectPrimitive from "@radix-ui/react-select";
 import { cn } from "@/lib/utils";
 
@@ -18,7 +18,7 @@ const SelectTrigger = forwardRef<
   <SelectPrimitive.Trigger
     ref={ref}
     className={cn(
-      "flex h-9 w-full items-center justify-between rounded-md border border-input bg-transparent px-3 py-2 text-sm shadow-sm ring-offset-background placeholder:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-ring disabled:cursor-not-allowed disabled:opacity-50",
+      "flex h-9 w-44 items-center justify-between rounded-md bg-transparent px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-ring disabled:cursor-not-allowed disabled:opacity-50",
       className,
     )}
     {...props}
@@ -73,7 +73,7 @@ const SelectLabel = forwardRef<
 const SelectItem = forwardRef<
   ElementRef<typeof SelectPrimitive.Item>,
   ComponentPropsWithoutRef<typeof SelectPrimitive.Item>
->(({ className, ...props }, ref) => (
+>(({ className, children, ...props }, ref) => (
   <SelectPrimitive.Item
     ref={ref}
     className={cn(
@@ -81,13 +81,32 @@ const SelectItem = forwardRef<
       className,
     )}
     {...props}
-  ></SelectPrimitive.Item>
+  >
+    <span className="absolute right-2 flex h-3.5 w-3.5 items-center justify-center">
+      <SelectPrimitive.ItemIndicator>
+        <CheckIcon className="h-4 w-4" />
+      </SelectPrimitive.ItemIndicator>
+    </span>
+    <SelectPrimitive.ItemText>{children}</SelectPrimitive.ItemText>
+  </SelectPrimitive.Item>
+));
+
+const SelectSeparator = forwardRef<
+  ElementRef<typeof SelectPrimitive.Separator>,
+  ComponentPropsWithoutRef<typeof SelectPrimitive.Separator>
+>(({ className, ...props }, ref) => (
+  <SelectPrimitive.Separator
+    ref={ref}
+    className={cn("-mx-1 my-1 h-px bg-muted", className)}
+    {...props}
+  />
 ));
 
 SelectTrigger.displayName = SelectPrimitive.Trigger.displayName;
 SelectContent.displayName = SelectPrimitive.Content.displayName;
 SelectLabel.displayName = SelectPrimitive.Label.displayName;
 SelectItem.displayName = SelectPrimitive.Item.displayName;
+SelectSeparator.displayName = SelectPrimitive.Separator.displayName;
 
 export {
   Select,
@@ -97,4 +116,5 @@ export {
   SelectContent,
   SelectLabel,
   SelectItem,
+  SelectSeparator,
 };

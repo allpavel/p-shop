@@ -1,3 +1,4 @@
+"use client";
 import Link from "next/link";
 import {
   NavigationMenu,
@@ -6,10 +7,12 @@ import {
   navigationMenuTriggerStyle,
   NavigationMenuLink,
 } from "@/components/NavigationMenu/NavigationMenu";
+import { CityPicker } from "../CityPicker/CItyPicker";
 
 export function HeaderTop() {
   return (
     <NavigationMenu>
+      <CityPicker />
       <NavigationMenuList>
         <NavigationMenuItem>
           <Link href={"about"} legacyBehavior passHref>
