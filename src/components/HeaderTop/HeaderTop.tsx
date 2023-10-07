@@ -11,6 +11,7 @@ import {
 } from "@/components/ui/NavigationMenu/NavigationMenu";
 import { MdPhoneInTalk } from "react-icons/md";
 import { CityPicker } from "../CityPicker/CItyPicker";
+import { Button } from "../ui/Button/Button";
 
 export function HeaderTop() {
   return (
@@ -62,7 +63,7 @@ export function HeaderTop() {
         <NavigationMenuItem>
           <NavigationMenuTrigger>Ещё</NavigationMenuTrigger>
           <NavigationMenuContent>
-            <ul>
+            <ul className="mt-1">
               <li>
                 <Link href={"bonuses"} legacyBehavior passHref>
                   <NavigationMenuLink
@@ -85,14 +86,14 @@ export function HeaderTop() {
       </NavigationMenuList>
       <NavigationMenuList>
         <NavigationMenuItem className={navigationMenuTriggerStyle()}>
-          <MdPhoneInTalk className="text-yellow-500 h-5 w-5 me-1" />{" "}
+          <MdPhoneInTalk className="text-yellow-500 h-5 w-5 me-1" />
           <a href="tel:+7(3452)59-49-45">+7 (3452) 59-49-45</a>
         </NavigationMenuItem>
-        <NavigationMenuItem
-          className={`${navigationMenuTriggerStyle()} text-yellow-400 cursor-pointer`}
-        >
-          Заказать звонок
-        </NavigationMenuItem>
+        <li>
+          <Button variant="outline" className="text-yellow-400">
+            Заказать звонок
+          </Button>
+        </li>
       </NavigationMenuList>
     </NavigationMenu>
   );
