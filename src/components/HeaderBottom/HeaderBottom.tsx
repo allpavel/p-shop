@@ -13,7 +13,7 @@ import { MdPercent } from "react-icons/md";
 export function HeaderBottom() {
   return (
     <NavigationMenu>
-      <NavigationMenuList>
+      <NavigationMenuList className="gap-8">
         <NavigationMenuItem>
           <Link href={"cats"} legacyBehavior passHref>
             <NavigationMenuLink className={navigationMenuTriggerStyle()}>
@@ -60,6 +60,22 @@ export function HeaderBottom() {
           <Link href={"sales"} legacyBehavior passHref>
             <NavigationMenuLink className={navigationMenuTriggerStyle()}>
               Акции <MdPercent className="text-yellow-500 h-5 w-5 ms-1" />
+            </NavigationMenuLink>
+          </Link>
+        </NavigationMenuItem>
+      </NavigationMenuList>
+      <NavigationMenuList className="gap-8">
+        <NavigationMenuItem>
+          <Link href={"franchise"} legacyBehavior passHref>
+            <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+              Франчайзинг
+            </NavigationMenuLink>
+          </Link>
+        </NavigationMenuItem>
+        <NavigationMenuItem>
+          <Link href={"vetclinics"} legacyBehavior passHref>
+            <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+              Ветклиника
             </NavigationMenuLink>
           </Link>
         </NavigationMenuItem>
