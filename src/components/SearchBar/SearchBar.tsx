@@ -32,13 +32,15 @@ export function SearchBar() {
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+      <form onSubmit={form.handleSubmit(onSubmit)} className="flex">
         <FormField
           control={form.control}
           name="search"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Поиск</FormLabel>
+              <FormLabel className="border-0 h-px -m-px overflow-hidden p-0 w-px absolute">
+                Поиск
+              </FormLabel>
               <FormControl>
                 <Input placeholder="Поиск товаров" {...field} />
               </FormControl>
