@@ -3,6 +3,7 @@
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
+import { MdSearch } from "react-icons/md";
 import {
   Form,
   FormControl,
@@ -32,7 +33,7 @@ export function SearchBar() {
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="flex">
+      <form onSubmit={form.handleSubmit(onSubmit)} className="flex h-14">
         <FormField
           control={form.control}
           name="search"
@@ -42,13 +43,24 @@ export function SearchBar() {
                 Поиск
               </FormLabel>
               <FormControl>
-                <Input placeholder="Поиск товаров" {...field} />
+                <Input
+                  placeholder="Поиск товаров"
+                  {...field}
+                  className="border-r-transparent rounded-e-none shadow-none"
+                />
               </FormControl>
               <FormMessage />
             </FormItem>
           )}
         />
-        <Button type="submit">Поиск</Button>
+        <Button
+          size="icon"
+          variant="search"
+          type="submit"
+          className="min-h-full"
+        >
+          <MdSearch />
+        </Button>
       </form>
     </Form>
   );
