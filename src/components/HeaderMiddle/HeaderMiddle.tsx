@@ -2,6 +2,8 @@ import Image from "next/image";
 import logo from "../../../public/logo.png";
 import Link from "next/link";
 import { SearchBar } from "../SearchBar/SearchBar";
+import { CustomerLink } from "../CustomerLink/CustomerLink";
+import { CartLink } from "../CartLink/CartLink";
 
 export function HeaderMiddle() {
   return (
@@ -9,8 +11,10 @@ export function HeaderMiddle() {
       <Link href="/" className="inline-block h-16 me-16">
         <Image src={logo} alt="Сытая морда" className="inline-block" />
       </Link>
-      <div className="flex items-center">
+      <div className="flex items-center grow gap-3.5">
         <SearchBar />
+        <CustomerLink />
+        <CartLink />
       </div>
     </div>
   );
