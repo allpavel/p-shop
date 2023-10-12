@@ -32,7 +32,7 @@ const NavigationMenuList = forwardRef<
     <NavigationMenuPrimitive.List
       ref={ref}
       className={cn(
-        "group flex flex-1 list-none items-center justify-center space-x-1",
+        "group flex flex-1 list-none items-center justify-center space-x-1 bg-white",
         className,
       )}
       {...props}
@@ -43,7 +43,7 @@ const NavigationMenuList = forwardRef<
 });
 
 const navigationMenuTriggerStyle = cva(
-  "group inline-flex h-9 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-colors hover:text-yellow-500 disabled:pointer-events-none disabled:opacity-50",
+  "group inline-flex h-9 w-max items-center justify-center rounded-md bg-background px-2 min-[1300px]:px-4 py-2 text-sm font-medium transition-colors hover:text-yellow-500 disabled:pointer-events-none disabled:opacity-50",
 );
 
 const NavigationMenuTrigger = forwardRef<

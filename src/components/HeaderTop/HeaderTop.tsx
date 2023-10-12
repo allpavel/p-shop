@@ -15,12 +15,14 @@ import { Button } from "../ui/Button/Button";
 
 export function HeaderTop() {
   return (
-    <NavigationMenu>
+    <NavigationMenu className="pt-2">
       <CityPicker />
       <NavigationMenuList>
         <NavigationMenuItem>
           <Link href={"about"} legacyBehavior passHref>
-            <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+            <NavigationMenuLink
+              className={`${navigationMenuTriggerStyle()} ps-0`}
+            >
               О нас
             </NavigationMenuLink>
           </Link>
@@ -63,8 +65,8 @@ export function HeaderTop() {
         <NavigationMenuItem>
           <NavigationMenuTrigger>Ещё</NavigationMenuTrigger>
           <NavigationMenuContent>
-            <ul className="mt-1">
-              <li>
+            <NavigationMenuList className="mt-1 flex-col items-start shadow-md">
+              <NavigationMenuItem>
                 <Link href={"bonuses"} legacyBehavior passHref>
                   <NavigationMenuLink
                     className={`${navigationMenuTriggerStyle()} mb-1`}
@@ -72,25 +74,28 @@ export function HeaderTop() {
                     Бонусная программа
                   </NavigationMenuLink>
                 </Link>
-              </li>
-              <li>
+              </NavigationMenuItem>
+              <NavigationMenuItem>
                 <Link href={"companies"} legacyBehavior passHref>
                   <NavigationMenuLink className={navigationMenuTriggerStyle()}>
                     Для юр. лиц
                   </NavigationMenuLink>
                 </Link>
-              </li>
-            </ul>
+              </NavigationMenuItem>
+            </NavigationMenuList>
           </NavigationMenuContent>
         </NavigationMenuItem>
       </NavigationMenuList>
-      <NavigationMenuList>
+      <NavigationMenuList className="flex flex-col min-[1160px]:flex-row">
         <NavigationMenuItem className={navigationMenuTriggerStyle()}>
           <MdPhoneInTalk className="text-yellow-500 h-5 w-5 me-1" />
           <a href="tel:+7(3452)59-49-45">+7 (3452) 59-49-45</a>
         </NavigationMenuItem>
         <li>
-          <Button variant="outline" className="text-yellow-400">
+          <Button
+            variant="outline"
+            className="text-yellow-400 px-2 min-[1350px]:px-4"
+          >
             Заказать звонок
           </Button>
         </li>

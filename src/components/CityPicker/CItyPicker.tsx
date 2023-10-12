@@ -17,7 +17,7 @@ export function CityPicker() {
   const [value, setValue] = useState("Новый Уренгой");
   return (
     <Select value={value} onValueChange={setValue}>
-      <SelectTrigger className="justify-start me-14">
+      <SelectTrigger className="justify-start me-0 min-[1350px]:me-10">
         <MdOutlineLocationOn className="text-yellow-500 h-5 w-5" />
         <SelectValue>{value}</SelectValue>
       </SelectTrigger>

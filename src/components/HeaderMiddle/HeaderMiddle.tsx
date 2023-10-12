@@ -11,7 +11,7 @@ export function HeaderMiddle() {
       <Link href="/" className="inline-block h-16 me-16">
         <Image src={logo} alt="Сытая морда" className="inline-block" />
       </Link>
-      <div className="flex items-center grow gap-3.5">
+      <div className="flex items-center grow gap-3.5 ps-2 pe-4">
         <SearchBar />
         <CustomerLink />
         <CartLink />
