@@ -20,9 +20,7 @@ export function HeaderTop() {
       <NavigationMenuList>
         <NavigationMenuItem>
           <Link href={"about"} legacyBehavior passHref>
-            <NavigationMenuLink
-              className={`${navigationMenuTriggerStyle()} ps-0`}
-            >
+            <NavigationMenuLink className={navigationMenuTriggerStyle()}>
               О нас
             </NavigationMenuLink>
           </Link>
@@ -91,14 +89,14 @@ export function HeaderTop() {
           <MdPhoneInTalk className="text-yellow-500 h-5 w-5 me-1" />
           <a href="tel:+7(3452)59-49-45">+7 (3452) 59-49-45</a>
         </NavigationMenuItem>
-        <li>
+        <NavigationMenuItem>
           <Button
             variant="outline"
             className="text-yellow-400 px-2 min-[1350px]:px-4"
           >
             Заказать звонок
           </Button>
-        </li>
+        </NavigationMenuItem>
       </NavigationMenuList>
     </NavigationMenu>
   );
