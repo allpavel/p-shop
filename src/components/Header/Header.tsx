@@ -1,13 +1,17 @@
-import { HeaderBottom } from "../HeaderBottom/HeaderBottom";
-import { HeaderMiddle } from "../HeaderMiddle/HeaderMiddle";
-import { HeaderTop } from "../HeaderTop/HeaderTop";
+import { TempMenu } from "../TempMenu/TempMenu";
+import { Container } from "../ui/Container/Container";
+// import { Temp2 } from "../temp2/Temp2";
 
 export function Header() {
   return (
-    <header className="container m-auto">
-      <HeaderTop />
+    <Container>
+      <header className="relative m-auto">
+        {/* <HeaderTop />
       <HeaderMiddle />
-      <HeaderBottom />
-    </header>
+      <HeaderBottom /> */}
+        {/* <Temp2 /> */}
+        <TempMenu />
+      </header>
+    </Container>
   );
 }
