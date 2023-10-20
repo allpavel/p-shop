@@ -12,7 +12,7 @@ import { MdPercent } from "react-icons/md";
 
 export function HeaderBottom() {
   return (
-    <NavigationMenu>
+    <NavigationMenu className="hidden lg:flex">
       <NavigationMenuList className="gap-8">
         <NavigationMenuItem>
           <Link href={"cats"} legacyBehavior passHref>

@@ -12,13 +12,23 @@ import {
 import { MdPhoneInTalk, MdMenu } from "react-icons/md";
 import { CityPicker } from "../CityPicker/CItyPicker";
 import { Button } from "../ui/Button/Button";
-import { Container } from "../ui/Container/Container";
+import { useState } from "react";
+// import { DropdownMenu, DropdownMenuContent, DropdownMenuTrigger } from "../ui/DropdownMenu/DropdownMenu";
 
 export function MobileNavigationBar() {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleMenu = () => setIsOpen((prev) => !prev);
   return (
-    <Container>
-      <MdMenu />
-      <NavigationMenu className="pt-2 flex-col lg:hidden">
+    <div className="relative  flex flex-col items-center justify-center">
+      <div onClick={toggleMenu} className="cursor-pointer">
+        <MdMenu />
+      </div>
+      <NavigationMenu
+        className={`pt-2 ${
+          isOpen ? "flex-col absolute top-16 left-0" : "hidden"
+        } lg:hidden`}
+      >
         <CityPicker />
         <NavigationMenuList className="flex-col">
           <NavigationMenuItem>
@@ -104,6 +114,6 @@ export function MobileNavigationBar() {
           </NavigationMenuItem>
         </NavigationMenuList>
       </NavigationMenu>
-    </Container>
+    </div>
   );
 }

@@ -4,6 +4,7 @@ import Link from "next/link";
 import { SearchBar } from "../SearchBar/SearchBar";
 import { CustomerLink } from "../CustomerLink/CustomerLink";
 import { CartLink } from "../CartLink/CartLink";
+import { MobileNavigationBar } from "../MobileNavigationMenu/MobileNavigationMenu";
 
 export function HeaderMiddle() {
   return (
@@ -11,6 +12,7 @@ export function HeaderMiddle() {
       <Link href="/" className="inline-block h-16 me-16">
         <Image src={logo} alt="Сытая морда" className="inline-block" />
       </Link>
+      <MobileNavigationBar />
       <div className="flex items-center grow gap-3.5 ps-2 pe-4">
         <SearchBar />
         <CustomerLink />
