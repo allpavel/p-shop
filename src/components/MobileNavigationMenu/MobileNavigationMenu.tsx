@@ -4,116 +4,106 @@ import {
   NavigationMenu,
   NavigationMenuList,
   NavigationMenuItem,
-  NavigationMenuTrigger,
-  NavigationMenuContent,
   navigationMenuTriggerStyle,
   NavigationMenuLink,
 } from "@/components/ui/NavigationMenu/NavigationMenu";
-import { MdPhoneInTalk, MdMenu } from "react-icons/md";
-import { CityPicker } from "../CityPicker/CItyPicker";
-import { Button } from "../ui/Button/Button";
+import { MdMenu, MdClose } from "react-icons/md";
 import { useState } from "react";
-// import { DropdownMenu, DropdownMenuContent, DropdownMenuTrigger } from "../ui/DropdownMenu/DropdownMenu";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "../ui/DropdownMenu/DropdownMenu";
 
 export function MobileNavigationBar() {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleMenu = () => setIsOpen((prev) => !prev);
   return (
-    <div className="relative  flex flex-col items-center justify-center">
-      <div onClick={toggleMenu} className="cursor-pointer">
-        <MdMenu />
-      </div>
-      <NavigationMenu
-        className={`pt-2 ${
-          isOpen ? "flex-col absolute top-16 left-0" : "hidden"
-        } lg:hidden`}
-      >
-        <CityPicker />
-        <NavigationMenuList className="flex-col">
-          <NavigationMenuItem>
-            <Link href={"about"} legacyBehavior passHref>
-              <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                О нас
-              </NavigationMenuLink>
-            </Link>
-          </NavigationMenuItem>
-          <NavigationMenuItem>
-            <Link href={"dostavka"} legacyBehavior passHref>
-              <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                Доставка и оплата
-              </NavigationMenuLink>
-            </Link>
-          </NavigationMenuItem>
-          <NavigationMenuItem>
-            <Link href={"faq"} legacyBehavior passHref>
-              <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                Вопросы и ответы
-              </NavigationMenuLink>
-            </Link>
-          </NavigationMenuItem>
-          <NavigationMenuItem>
-            <Link href={"feedback"} legacyBehavior passHref>
-              <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                Отзывы
-              </NavigationMenuLink>
-            </Link>
-          </NavigationMenuItem>
-          <NavigationMenuItem>
-            <Link href={"articles"} legacyBehavior passHref>
-              <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                Статьи
-              </NavigationMenuLink>
-            </Link>
-          </NavigationMenuItem>
-          <NavigationMenuItem>
-            <Link href={"contacts"} legacyBehavior passHref>
-              <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                Контакты
-              </NavigationMenuLink>
-            </Link>
-          </NavigationMenuItem>
-          <NavigationMenuItem>
-            <NavigationMenuTrigger>Ещё</NavigationMenuTrigger>
-            <NavigationMenuContent>
-              <NavigationMenuList className="mt-1 flex-col items-start shadow-md">
-                <NavigationMenuItem>
-                  <Link href={"bonuses"} legacyBehavior passHref>
-                    <NavigationMenuLink
-                      className={`${navigationMenuTriggerStyle()} mb-1`}
-                    >
-                      Бонусная программа
-                    </NavigationMenuLink>
-                  </Link>
-                </NavigationMenuItem>
-                <NavigationMenuItem>
-                  <Link href={"companies"} legacyBehavior passHref>
-                    <NavigationMenuLink
-                      className={navigationMenuTriggerStyle()}
-                    >
-                      Для юр. лиц
-                    </NavigationMenuLink>
-                  </Link>
-                </NavigationMenuItem>
-              </NavigationMenuList>
-            </NavigationMenuContent>
-          </NavigationMenuItem>
-        </NavigationMenuList>
-        <NavigationMenuList className="flex flex-col min-[1160px]:flex-row">
-          <NavigationMenuItem className={navigationMenuTriggerStyle()}>
-            <MdPhoneInTalk className="text-yellow-500 h-5 w-5 me-1" />
-            <a href="tel:+7(3452)59-49-45">+7 (3452) 59-49-45</a>
-          </NavigationMenuItem>
-          <NavigationMenuItem>
-            <Button
-              variant="outline"
-              className="text-yellow-400 px-2 min-[1350px]:px-4"
-            >
-              Заказать звонок
-            </Button>
-          </NavigationMenuItem>
-        </NavigationMenuList>
-      </NavigationMenu>
-    </div>
+    <DropdownMenu open={isOpen} onOpenChange={setIsOpen}>
+      <DropdownMenuTrigger asChild>
+        <button
+          onClick={toggleMenu}
+          aria-expanded={isOpen}
+          className="cursor-pointer"
+        >
+          {isOpen ? (
+            <MdClose aria-hidden="true" focusable="false" />
+          ) : (
+            <MdMenu aria-hidden="true" focusable="false" />
+          )}
+        </button>
+      </DropdownMenuTrigger>
+      <DropdownMenuContent asChild>
+        <NavigationMenu>
+          <NavigationMenuList className="flex-col">
+            <DropdownMenuItem asChild>
+              <NavigationMenuItem>
+                <Link href={"about"} legacyBehavior passHref>
+                  <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                    О нас
+                  </NavigationMenuLink>
+                </Link>
+              </NavigationMenuItem>
+            </DropdownMenuItem>
+            <DropdownMenuItem asChild>
+              <NavigationMenuItem>
+                <Link href={"about"} legacyBehavior passHref>
+                  <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                    О нас
+                  </NavigationMenuLink>
+                </Link>
+              </NavigationMenuItem>
+            </DropdownMenuItem>
+            <DropdownMenuItem asChild>
+              <NavigationMenuItem>
+                <Link href={"dostavka"} legacyBehavior passHref>
+                  <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                    Доставка и оплата
+                  </NavigationMenuLink>
+                </Link>
+              </NavigationMenuItem>
+            </DropdownMenuItem>
+            <DropdownMenuItem asChild>
+              <NavigationMenuItem>
+                <Link href={"faq"} legacyBehavior passHref>
+                  <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                    Вопросы и ответы
+                  </NavigationMenuLink>
+                </Link>
+              </NavigationMenuItem>
+            </DropdownMenuItem>
+            <DropdownMenuItem asChild>
+              <NavigationMenuItem>
+                <Link href={"feedback"} legacyBehavior passHref>
+                  <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                    Отзывы
+                  </NavigationMenuLink>
+                </Link>
+              </NavigationMenuItem>
+            </DropdownMenuItem>
+            <DropdownMenuItem asChild>
+              <NavigationMenuItem>
+                <Link href={"articles"} legacyBehavior passHref>
+                  <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                    Статьи
+                  </NavigationMenuLink>
+                </Link>
+              </NavigationMenuItem>
+            </DropdownMenuItem>
+            <DropdownMenuItem asChild>
+              <NavigationMenuItem>
+                <Link href={"contacts"} legacyBehavior passHref>
+                  <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                    Контакты
+                  </NavigationMenuLink>
+                </Link>
+              </NavigationMenuItem>
+            </DropdownMenuItem>
+          </NavigationMenuList>
+        </NavigationMenu>
+      </DropdownMenuContent>
+    </DropdownMenu>
   );
 }
