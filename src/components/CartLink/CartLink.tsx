@@ -7,7 +7,8 @@ export function CartLink() {
       href="account"
       className="rounded-md border border-input bg-transparent px-3 py-1 text-sm shadow-sm h-14 flex items-center justify-center"
     >
-      <MdOutlineShoppingCart className="me-2" /> 12 345 &#8381;
+      <MdOutlineShoppingCart className="lg:me-2" />{" "}
+      <span className="hidden lg:block">12 345 &#8381;</span>
     </Link>
   );
 }
