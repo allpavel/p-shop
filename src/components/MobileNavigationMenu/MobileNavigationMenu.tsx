@@ -1,12 +1,6 @@
 "use client";
 import Link from "next/link";
-import {
-  NavigationMenu,
-  NavigationMenuList,
-  NavigationMenuItem,
-  navigationMenuTriggerStyle,
-  NavigationMenuLink,
-} from "@/components/ui/NavigationMenu/NavigationMenu";
+import { navigationMenuTriggerStyle } from "@/components/ui/NavigationMenu/NavigationMenu";
 import { MdMenu, MdClose } from "react-icons/md";
 import { useState } from "react";
 import {
@@ -20,6 +14,7 @@ export function MobileNavigationBar() {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleMenu = () => setIsOpen((prev) => !prev);
+
   return (
     <DropdownMenu open={isOpen} onOpenChange={setIsOpen}>
       <DropdownMenuTrigger asChild>
@@ -35,74 +30,43 @@ export function MobileNavigationBar() {
           )}
         </button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent asChild>
-        <NavigationMenu>
-          <NavigationMenuList className="flex-col">
-            <DropdownMenuItem asChild>
-              <NavigationMenuItem>
-                <Link href={"about"} legacyBehavior passHref>
-                  <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                    О нас
-                  </NavigationMenuLink>
-                </Link>
-              </NavigationMenuItem>
-            </DropdownMenuItem>
-            <DropdownMenuItem asChild>
-              <NavigationMenuItem>
-                <Link href={"about"} legacyBehavior passHref>
-                  <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                    О нас
-                  </NavigationMenuLink>
-                </Link>
-              </NavigationMenuItem>
-            </DropdownMenuItem>
-            <DropdownMenuItem asChild>
-              <NavigationMenuItem>
-                <Link href={"dostavka"} legacyBehavior passHref>
-                  <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                    Доставка и оплата
-                  </NavigationMenuLink>
-                </Link>
-              </NavigationMenuItem>
-            </DropdownMenuItem>
-            <DropdownMenuItem asChild>
-              <NavigationMenuItem>
-                <Link href={"faq"} legacyBehavior passHref>
-                  <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                    Вопросы и ответы
-                  </NavigationMenuLink>
-                </Link>
-              </NavigationMenuItem>
-            </DropdownMenuItem>
-            <DropdownMenuItem asChild>
-              <NavigationMenuItem>
-                <Link href={"feedback"} legacyBehavior passHref>
-                  <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                    Отзывы
-                  </NavigationMenuLink>
-                </Link>
-              </NavigationMenuItem>
-            </DropdownMenuItem>
-            <DropdownMenuItem asChild>
-              <NavigationMenuItem>
-                <Link href={"articles"} legacyBehavior passHref>
-                  <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                    Статьи
-                  </NavigationMenuLink>
-                </Link>
-              </NavigationMenuItem>
-            </DropdownMenuItem>
-            <DropdownMenuItem asChild>
-              <NavigationMenuItem>
-                <Link href={"contacts"} legacyBehavior passHref>
-                  <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                    Контакты
-                  </NavigationMenuLink>
-                </Link>
-              </NavigationMenuItem>
-            </DropdownMenuItem>
-          </NavigationMenuList>
-        </NavigationMenu>
+      <DropdownMenuContent className="h-screen w-screen flex flex-col items-center gap-4">
+        <DropdownMenuItem
+          className={`${navigationMenuTriggerStyle()} w-1/2`}
+          asChild
+        >
+          <Link href={"/"}>Главная</Link>
+        </DropdownMenuItem>
+        <DropdownMenuItem
+          className={`${navigationMenuTriggerStyle()} w-1/2`}
+          asChild
+        >
+          <Link href={"/"}>О нас</Link>
+        </DropdownMenuItem>
+        <DropdownMenuItem
+          className={`${navigationMenuTriggerStyle()} w-1/2`}
+          asChild
+        >
+          <Link href={"/"}>Доставка и оплата</Link>
+        </DropdownMenuItem>
+        <DropdownMenuItem
+          className={`${navigationMenuTriggerStyle()} w-1/2`}
+          asChild
+        >
+          <Link href={"/"}>Вопросы и ответы</Link>
+        </DropdownMenuItem>
+        <DropdownMenuItem
+          className={`${navigationMenuTriggerStyle()} w-1/2`}
+          asChild
+        >
+          <Link href={"/"}>Отзывы</Link>
+        </DropdownMenuItem>
+        <DropdownMenuItem
+          className={`${navigationMenuTriggerStyle()} w-1/2`}
+          asChild
+        >
+          <Link href={"/"}>Статьи</Link>
+        </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
   );
